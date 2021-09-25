@@ -4,7 +4,7 @@ fieldset{
 
 .input div{
     background: beige;
-    color: rgb(255, 0, 0);
+    color: rgb(66, 66, 66);
     border-radius: 10px;
 }
 
@@ -14,4 +14,14 @@ fieldset{
 
 div button{
     margin-left: 5px;
+}
+
+form{
+
+    max-width: 225px;
+    
+}
+
+p{
+    font-size: 10px;
 }

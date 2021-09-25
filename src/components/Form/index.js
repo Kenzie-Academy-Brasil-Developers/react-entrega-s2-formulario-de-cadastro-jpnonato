@@ -10,7 +10,8 @@ export default function Form(){
     const history = useHistory()
 
     const schema = yup.object().shape({
-        name: yup.string().required("Campo obrigatório"),
+        name: yup.string().required("Campo obrigatório").matches(
+            /^[a-z]$/i, 'Nome deve conter apenas letras'),
         email: yup.string().email("Email inválido").required("Campo obrigatório"),
         password: yup
           .string()
@@ -41,7 +42,7 @@ export default function Form(){
                 <TextField 
                     label='Nome'
                     margin='normal'
-                    variant='outlined'
+                    variant='filled'
                     color='primary'
                     {...register('name')}
                     error={!!errors.name}
@@ -53,7 +54,7 @@ export default function Form(){
                 <TextField 
                     label='E-mail'
                     margin='normal'
-                    variant='outlined'
+                    variant='filled'
                     color='primary'
                     {...register('email')}
                     error={!!errors.email}
@@ -65,8 +66,9 @@ export default function Form(){
                 <TextField 
                     label='Senha'
                     margin='normal'
-                    variant='outlined'
+                    variant='filled'
                     color='primary'
+                    type='password'
                     {...register('password')}
                     error={!!errors.password}
                     helperText={errors.password?.message}
@@ -77,7 +79,8 @@ export default function Form(){
                 <TextField 
                     label='Confirmar senha'
                     margin='normal'
-                    variant='outlined'
+                    variant='filled'
+                    type='password'
                     color='primary'
                     {...register('confirm_password')}
                     error={!!errors.confirm_password}
